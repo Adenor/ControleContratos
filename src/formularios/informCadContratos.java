@@ -401,6 +401,9 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this,"Verifique o campo Ano\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
+            if (ex.getMessage().contains("Duplicate entry")) {
+                JOptionPane.showMessageDialog(this,"Já existe um contrato com esse número nesse ano\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+            }
             Logger.getLogger(informCadContratos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAdcionarActionPerformed

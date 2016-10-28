@@ -1,5 +1,5 @@
 package entidades;
-// Generated 27/10/2016 13:59:25 by Hibernate Tools 4.3.1
+// Generated 28/10/2016 11:16:54 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -23,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name="contratos"
     ,catalog="contratosbd"
-    , uniqueConstraints = @UniqueConstraint(columnNames="Referencia") 
+    , uniqueConstraints = @UniqueConstraint(columnNames={"Referencia", "Ano"}) 
 )
 public class Contratos  implements java.io.Serializable {
 
@@ -86,7 +86,7 @@ public class Contratos  implements java.io.Serializable {
     }
 
     
-    @Column(name="Referencia", unique=true, nullable=false)
+    @Column(name="Referencia", nullable=false)
     public long getReferencia() {
         return this.referencia;
     }

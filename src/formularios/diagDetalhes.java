@@ -654,7 +654,16 @@ public class diagDetalhes extends javax.swing.JDialog {
         txtRazao.setEnabled(false);
         txtReferencia.setEnabled(false);
         cbxObjeto.setEnabled(false);
-        ftfVencimento.setText(new SimpleDateFormat("dd/MM/yyyy").format(ContratoPai.getVencimento()));
+        if (ContratoPai.getVencimento()!=null) ftfVencimento.setText(new SimpleDateFormat("dd/MM/yyyy").format(ContratoPai.getVencimento()));
+        else {
+            ftfVencimento.setValue(null);
+            ftfVencimento.setText("");
+        }
+        if (ContratoPai.getVigencia()!=null) ftfVigencia.setText(new SimpleDateFormat("dd/MM/yyyy").format(ContratoPai.getVigencia()));
+        else {
+            ftfVigencia.setValue(null);
+            ftfVigencia.setText("");
+        }
         ftfAssinatura.setText(new SimpleDateFormat("dd/MM/yyyy").format(ContratoPai.getAssinatura()));
         ftfAssinatura.setEnabled(false);
         ftfVencimento.setEnabled(false);
@@ -668,6 +677,20 @@ public class diagDetalhes extends javax.swing.JDialog {
 
     private void btnSalvarDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarDetalhesActionPerformed
         // TODO add your handling code here:
+        Contratos ContratoRollback = new Contratos();
+        
+        ContratoRollback.setAgencia(ContratoPai.getAgencia());
+        ContratoRollback.setAno(ContratoPai.getAno());
+        ContratoRollback.setAssinatura(ContratoPai.getAssinatura());
+        ContratoRollback.setConta(ContratoPai.getConta());
+        ContratoRollback.setEndereco(ContratoPai.getEndereco());
+        ContratoRollback.setIdentificador(ContratoPai.getIdentificador());
+        ContratoRollback.setObjeto(ContratoPai.getObjeto());
+        ContratoRollback.setRazao(ContratoPai.getRazao());
+        ContratoRollback.setReferencia(ContratoPai.getReferencia());
+        ContratoRollback.setVencimento(ContratoPai.getVencimento());
+        ContratoRollback.setVigencia(ContratoPai.getVigencia());
+        
         String vCPFCNPJ;
         if (rbtCNPJ.isSelected()) {
             if (ftfCPFCNPJ.getText().replace(".", "").replace("-", "").replace("/", "").trim().equals("")){
@@ -711,8 +734,35 @@ public class diagDetalhes extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Contrato cadastrado com sucesso.","Incluir", JOptionPane.INFORMATION_MESSAGE);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(this,"Verifique o campo Data de assinatura\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception ex) {
-            Logger.getLogger(informCadContratos.class.getName()).log(Level.SEVERE, null, ex);
+            ContratoPai.setAgencia(ContratoRollback.getAgencia());
+            ContratoPai.setAno(ContratoRollback.getAno());
+            ContratoPai.setAssinatura(ContratoRollback.getAssinatura());
+            ContratoPai.setConta(ContratoRollback.getConta());
+            ContratoPai.setEndereco(ContratoRollback.getEndereco());
+            ContratoPai.setIdentificador(ContratoRollback.getIdentificador());
+            ContratoPai.setObjeto(ContratoRollback.getObjeto());
+            ContratoPai.setRazao(ContratoRollback.getRazao());
+            ContratoPai.setReferencia(ContratoRollback.getReferencia());
+            ContratoPai.setVencimento(ContratoRollback.getVencimento());
+            ContratoPai.setVigencia(ContratoRollback.getVigencia());
+            return;
+        }catch (Exception ex) {
+            if (ex.getMessage().contains("Duplicate entry")) {
+                JOptionPane.showMessageDialog(this,"Já existe um contrato com esse número nesse ano\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            Logger.getLogger(informCadContratos.class.getName()).log(Level.SEVERE, null, ex.getCause());
+            ContratoPai.setAgencia(ContratoRollback.getAgencia());
+            ContratoPai.setAno(ContratoRollback.getAno());
+            ContratoPai.setAssinatura(ContratoRollback.getAssinatura());
+            ContratoPai.setConta(ContratoRollback.getConta());
+            ContratoPai.setEndereco(ContratoRollback.getEndereco());
+            ContratoPai.setIdentificador(ContratoRollback.getIdentificador());
+            ContratoPai.setObjeto(ContratoRollback.getObjeto());
+            ContratoPai.setRazao(ContratoRollback.getRazao());
+            ContratoPai.setReferencia(ContratoRollback.getReferencia());
+            ContratoPai.setVencimento(ContratoRollback.getVencimento());
+            ContratoPai.setVigencia(ContratoRollback.getVigencia());
+            return;
         }
         preencherCampos();
         rbtCPF.setEnabled(false);
@@ -750,7 +800,7 @@ public class diagDetalhes extends javax.swing.JDialog {
 
     private void ftfNumeroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftfNumeroFocusLost
         // TODO add your handling code here:
-        if (ftfNumero.getText().equals("")) ftfNumero.setValue((Object) "");
+        if (ftfNumero.getText().equals("")) ftfNumero.setValue(null);
     }//GEN-LAST:event_ftfNumeroFocusLost
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
