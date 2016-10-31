@@ -156,7 +156,7 @@ public class ControleContratos {
                 }
             }
             if (!vSQL.equals("")){
-                Consulta =  Sessao.createQuery("FROM Contratos con WHERE " + vSQL + " ORDER BY con.agencia, con.vigencia DESC");
+                Consulta =  Sessao.createQuery("FROM Contratos con WHERE " + vSQL + " ORDER BY con.referencia DESC, con.ano DESC");
                 if  (!Ref.equals("")) Consulta.setParameter("ref", Ref);
                 if  (!Ide.equals("")) Consulta.setParameter("ide", Ide);
                 if  (!Ano.equals("")) Consulta.setParameter("ano", Ano);
@@ -165,7 +165,7 @@ public class ControleContratos {
                 if  (!Obj.equals("")) Consulta.setParameter("obj", Obj);
                 if  (!DtI.equals("")) Consulta.setParameter("dti", DtI);
                 if  (!DtF.equals("")) Consulta.setParameter("dtf", DtF);
-            } else Consulta =  Sessao.createQuery("FROM Contratos con ORDER BY con.agencia, con.vigencia DESC");
+            } else Consulta =  Sessao.createQuery("FROM Contratos con ORDER BY con.referencia DESC, con.ano DESC");
             return Consulta.list();
         } catch (HibernateException he) {
             throw new HibernateException(he.getCause());

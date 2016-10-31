@@ -20,9 +20,9 @@ public class formPrincipal extends javax.swing.JFrame {
     ConfigUtil configUtil = new ConfigUtil();
     informCadContratos informCadContratosIns = new informCadContratos();
     informConContrato informConsultaIns = new informConContrato();
-    public static final String SERVIDOR = "Suret_Geseb_009";
+    public static final String SERVIDOR = "Suret_Geseb_008";
     public static final String USUARIO = "root";
-    public static final String SENHA = "1234";
+    public static final String SENHA = "2351";
     /**
      * Creates new form formPrincipal
      */
