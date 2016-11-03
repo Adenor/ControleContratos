@@ -404,7 +404,7 @@ public class diagDetalhes extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        ftfAgencia.setFocusLostBehavior(3);
+        ftfConta.setFocusLostBehavior(3);
         try {
             MaskFormatter mf = new MaskFormatter("##########");
             mf.setValueContainsLiteralCharacters(false);

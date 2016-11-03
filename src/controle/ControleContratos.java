@@ -165,7 +165,9 @@ public class ControleContratos {
                 if  (!Obj.equals("")) Consulta.setParameter("obj", Obj);
                 if  (!DtI.equals("")) Consulta.setParameter("dti", DtI);
                 if  (!DtF.equals("")) Consulta.setParameter("dtf", DtF);
-            } else Consulta =  Sessao.createQuery("FROM Contratos con ORDER BY con.referencia DESC, con.ano DESC");
+            } else {
+                Consulta =  Sessao.createQuery("FROM Contratos con ORDER BY con.referencia DESC, con.ano DESC");
+            }
             return Consulta.list();
         } catch (HibernateException he) {
             throw new HibernateException(he.getCause());

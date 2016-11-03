@@ -538,7 +538,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfAgencia.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;##########&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfConta.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;##########&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="ftfAno">
