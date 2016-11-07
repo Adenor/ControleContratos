@@ -134,6 +134,7 @@ public class diagContas extends javax.swing.JDialog {
         lblNumero.setText("Número");
 
         try {
+            ftfAgencia.setFocusLostBehavior(3);
             ftfAgencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
