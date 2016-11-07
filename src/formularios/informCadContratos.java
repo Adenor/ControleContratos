@@ -36,7 +36,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
             final MaskFormatter mfAgencia = new MaskFormatter("####");
             ftfAgencia.setFormatterFactory(new DefaultFormatterFactory(mfAgencia));
             final MaskFormatter mfConta = new MaskFormatter("############");
-            ftfConta.setFormatterFactory(new DefaultFormatterFactory(mfConta));
             ftfAno.setFormatterFactory(new DefaultFormatterFactory(mfConta));
             final MaskFormatter mfData = new MaskFormatter("##/##/####");
             ftfAssinatura.setFormatterFactory(new DefaultFormatterFactory(mfData));
@@ -81,7 +80,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         lblEndereco = new javax.swing.JLabel();
         lblObjeto = new javax.swing.JLabel();
         lblAgencia = new javax.swing.JLabel();
-        lblConta = new javax.swing.JLabel();
         lblDataAssinatura = new javax.swing.JLabel();
         lblDataVencimento = new javax.swing.JLabel();
         lblDataVigencia = new javax.swing.JLabel();
@@ -93,7 +91,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         rbtCPF = new javax.swing.JRadioButton();
         ftfCPFCNPJ = new javax.swing.JFormattedTextField();
         ftfAgencia = new javax.swing.JFormattedTextField();
-        ftfConta = new javax.swing.JFormattedTextField();
         ftfAno = new javax.swing.JFormattedTextField();
         ftfAssinatura = new javax.swing.JFormattedTextField();
         ftfVencimento = new javax.swing.JFormattedTextField();
@@ -115,8 +112,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         lblObjeto.setText("Objeto");
 
         lblAgencia.setText("Agência");
-
-        lblConta.setText("Conta");
 
         lblDataAssinatura.setText("Data de Assinatura");
 
@@ -176,15 +171,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
             MaskFormatter mf = new MaskFormatter("####");
             mf.setValueContainsLiteralCharacters(false);
             ftfAgencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mf));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        ftfConta.setFocusLostBehavior(3);
-        try {
-            MaskFormatter mf = new MaskFormatter("##########");
-            mf.setValueContainsLiteralCharacters(false);
-            ftfConta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mf));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -256,37 +242,33 @@ public class informCadContratos extends javax.swing.JInternalFrame {
                                 .addGap(10, 10, 10))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(86, 86, 86)
-                                .addComponent(brnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rbtCNPJ)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rbtCPF))
-                                    .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblObjeto)
+                                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(86, 86, 86)
+                                        .addComponent(brnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnObjetos)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(lblConta))
-                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rbtCNPJ)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rbtCPF))
+                                            .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
-                                        .addComponent(ftfConta, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblObjeto)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnObjetos)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblAgencia)
+                                            .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(137, 137, 137)))))
                         .addContainerGap(10, Short.MAX_VALUE))))
         );
 
@@ -307,9 +289,7 @@ public class informCadContratos extends javax.swing.JInternalFrame {
                     .addComponent(ftfAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblAgencia)
-                        .addComponent(lblConta))
+                    .addComponent(lblAgencia)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbtCNPJ)
@@ -319,7 +299,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ftfConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnObjetos)
                             .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -380,7 +359,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         Contratos vContrato = new Contratos();
         vContrato.setReferencia(Integer.parseInt(txtReferencia.getText()));
         vContrato.setAgencia(Integer.parseInt(ftfAgencia.getText().trim()));
-        vContrato.setConta(Integer.parseInt(ftfConta.getText().trim()));
         vContrato.setIdentificador(vCPFCNPJ);
         vContrato.setObjeto(cbxObjeto.getSelectedItem().toString());
         vContrato.setEndereco(txtEndereco.getText());
@@ -420,7 +398,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         txtRazao.setText("");
         txtReferencia.setText("");
         ftfAgencia.setText("");
-        ftfConta.setText("");
         ftfAno.setText("");
         ftfCPFCNPJ.setText("");
         ftfAssinatura.setText("");
@@ -476,12 +453,10 @@ public class informCadContratos extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField ftfAno;
     private javax.swing.JFormattedTextField ftfAssinatura;
     private javax.swing.JFormattedTextField ftfCPFCNPJ;
-    private javax.swing.JFormattedTextField ftfConta;
     private javax.swing.JFormattedTextField ftfVencimento;
     private javax.swing.JFormattedTextField ftfVigencia;
     private javax.swing.JLabel lblAgencia;
     private javax.swing.JLabel lblAno;
-    private javax.swing.JLabel lblConta;
     private javax.swing.JLabel lblDataAssinatura;
     private javax.swing.JLabel lblDataVencimento;
     private javax.swing.JLabel lblDataVigencia;

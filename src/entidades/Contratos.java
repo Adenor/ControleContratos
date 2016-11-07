@@ -1,5 +1,5 @@
 package entidades;
-// Generated 28/10/2016 11:16:54 by Hibernate Tools 4.3.1
+// Generated 04/11/2016 16:56:09 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -35,42 +35,41 @@ public class Contratos  implements java.io.Serializable {
      private String identificador;
      private String endereco;
      private int agencia;
-     private int conta;
      private String objeto;
      private Date assinatura;
      private Date vencimento;
      private Date vigencia;
-     private Set<Aditivos> aditivoses = new HashSet<Aditivos>(0);
      private Set<Tarifas> tarifases = new HashSet<Tarifas>(0);
+     private Set<Contas> contases = new HashSet<Contas>(0);
+     private Set<Aditivos> aditivoses = new HashSet<Aditivos>(0);
 
     public Contratos() {
     }
 
 	
-    public Contratos(long referencia, int ano, String razao, String identificador, int agencia, int conta, String objeto, Date assinatura) {
+    public Contratos(long referencia, int ano, String razao, String identificador, int agencia, String objeto, Date assinatura) {
         this.referencia = referencia;
         this.ano = ano;
         this.razao = razao;
         this.identificador = identificador;
         this.agencia = agencia;
-        this.conta = conta;
         this.objeto = objeto;
         this.assinatura = assinatura;
     }
-    public Contratos(long referencia, int ano, String razao, String identificador, String endereco, int agencia, int conta, String objeto, Date assinatura, Date vencimento, Date vigencia, Set<Aditivos> aditivoses, Set<Tarifas> tarifases) {
+    public Contratos(long referencia, int ano, String razao, String identificador, String endereco, int agencia, String objeto, Date assinatura, Date vencimento, Date vigencia, Set<Tarifas> tarifases, Set<Contas> contases, Set<Aditivos> aditivoses) {
        this.referencia = referencia;
        this.ano = ano;
        this.razao = razao;
        this.identificador = identificador;
        this.endereco = endereco;
        this.agencia = agencia;
-       this.conta = conta;
        this.objeto = objeto;
        this.assinatura = assinatura;
        this.vencimento = vencimento;
        this.vigencia = vigencia;
-       this.aditivoses = aditivoses;
        this.tarifases = tarifases;
+       this.contases = contases;
+       this.aditivoses = aditivoses;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -146,16 +145,6 @@ public class Contratos  implements java.io.Serializable {
     }
 
     
-    @Column(name="Conta", nullable=false)
-    public int getConta() {
-        return this.conta;
-    }
-    
-    public void setConta(int conta) {
-        this.conta = conta;
-    }
-
-    
     @Column(name="Objeto", nullable=false, length=20)
     public String getObjeto() {
         return this.objeto;
@@ -196,21 +185,30 @@ public class Contratos  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
-    public Set<Aditivos> getAditivoses() {
-        return this.aditivoses;
-    }
-    
-    public void setAditivoses(Set<Aditivos> aditivoses) {
-        this.aditivoses = aditivoses;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
     public Set<Tarifas> getTarifases() {
         return this.tarifases;
     }
     
     public void setTarifases(Set<Tarifas> tarifases) {
         this.tarifases = tarifases;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
+    public Set<Contas> getContases() {
+        return this.contases;
+    }
+    
+    public void setContases(Set<Contas> contases) {
+        this.contases = contases;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
+    public Set<Aditivos> getAditivoses() {
+        return this.aditivoses;
+    }
+    
+    public void setAditivoses(Set<Aditivos> aditivoses) {
+        this.aditivoses = aditivoses;
     }
 
 

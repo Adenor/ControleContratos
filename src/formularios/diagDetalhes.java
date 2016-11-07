@@ -91,8 +91,6 @@ public class diagDetalhes extends javax.swing.JDialog {
                 + String.valueOf(ContratoPai.getAgencia()));
         txtRazao.setText(ContratoPai.getRazao());
         txtReferencia.setText(String.valueOf(ContratoPai.getReferencia()));
-        if (ContratoPai.getConta()!= 0) ftfConta.setText("0000000000".substring(String.valueOf(ContratoPai.getConta()).length())
-                + String.valueOf(ContratoPai.getConta()));
         if (ContratoPai.getAno() != 0) ftfAno.setText(String.valueOf(ContratoPai.getAno()));
         if (ContratoPai.getVencimento()!=null) ftfVencimento.setText(new SimpleDateFormat("dd/MM/yyyy").format(
                 ContratoPai.getVencimento()));
@@ -169,7 +167,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         btnCancelarDetalhes = new javax.swing.JButton();
         lblObjeto = new javax.swing.JLabel();
         lblAgencia = new javax.swing.JLabel();
-        lblConta = new javax.swing.JLabel();
         lblDataAssinatura = new javax.swing.JLabel();
         lblDataVencimento = new javax.swing.JLabel();
         lblDataVigencia = new javax.swing.JLabel();
@@ -178,7 +175,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         rbtCPF = new javax.swing.JRadioButton();
         ftfCPFCNPJ = new javax.swing.JFormattedTextField();
         ftfAgencia = new javax.swing.JFormattedTextField();
-        ftfConta = new javax.swing.JFormattedTextField();
         ftfAno = new javax.swing.JFormattedTextField();
         lblReferencia = new javax.swing.JLabel();
         txtReferencia = new javax.swing.JTextField();
@@ -191,6 +187,7 @@ public class diagDetalhes extends javax.swing.JDialog {
         txtEndereco = new javax.swing.JTextField();
         cbxObjeto = new javax.swing.JComboBox();
         lblEndereco = new javax.swing.JLabel();
+        btnContas = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
 
@@ -325,7 +322,7 @@ public class diagDetalhes extends javax.swing.JDialog {
                     .addComponent(btnSalvar)
                     .addComponent(btnAdcionar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spnAditivos, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                .addComponent(spnAditivos, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
         );
 
         panDetalhes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "Detalhes"));
@@ -356,8 +353,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         lblObjeto.setText("Objeto");
 
         lblAgencia.setText("Agência");
-
-        lblConta.setText("Conta");
 
         lblDataAssinatura.setText("Data de Assinatura");
 
@@ -400,16 +395,6 @@ public class diagDetalhes extends javax.swing.JDialog {
             mf.setValueContainsLiteralCharacters(false);
             ftfAgencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mf));
             ftfAgencia.setEnabled(false);
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        ftfConta.setFocusLostBehavior(3);
-        try {
-            MaskFormatter mf = new MaskFormatter("##########");
-            mf.setValueContainsLiteralCharacters(false);
-            ftfConta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mf));
-            ftfConta.setEnabled(false);
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -457,71 +442,82 @@ public class diagDetalhes extends javax.swing.JDialog {
 
         lblEndereco.setText("Endereço");
 
+        btnContas.setText("Contas");
+        btnContas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panDetalhesLayout = new javax.swing.GroupLayout(panDetalhes);
         panDetalhes.setLayout(panDetalhesLayout);
         panDetalhesLayout.setHorizontalGroup(
             panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panDetalhesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblEndereco)
+                .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panDetalhesLayout.createSequentialGroup()
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDataAssinatura)
-                            .addComponent(ftfAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDataVencimento)
-                            .addComponent(ftfVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDataVigencia)
-                            .addComponent(ftfVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panDetalhesLayout.createSequentialGroup()
+                                .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblReferencia))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ftfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAno))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRazao)
+                                    .addComponent(txtRazao)))
+                            .addComponent(txtEndereco)
+                            .addGroup(panDetalhesLayout.createSequentialGroup()
+                                .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEndereco)
+                                    .addGroup(panDetalhesLayout.createSequentialGroup()
+                                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataAssinatura)
+                                            .addComponent(ftfAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataVencimento)
+                                            .addComponent(ftfVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataVigencia)
+                                            .addComponent(ftfVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(panDetalhesLayout.createSequentialGroup()
+                                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(panDetalhesLayout.createSequentialGroup()
+                                                .addComponent(rbtCNPJ)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rbtCPF))
+                                            .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblObjeto)
+                                            .addGroup(panDetalhesLayout.createSequentialGroup()
+                                                .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnObjetos)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(180, 180, 180)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panDetalhesLayout.createSequentialGroup()
                         .addComponent(btnEditarDetalhes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelarDetalhes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalvarDetalhes))
-                    .addGroup(panDetalhesLayout.createSequentialGroup()
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblReferencia))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ftfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAno))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRazao)
-                            .addComponent(txtRazao)))
-                    .addComponent(txtEndereco)
-                    .addGroup(panDetalhesLayout.createSequentialGroup()
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panDetalhesLayout.createSequentialGroup()
-                                .addComponent(rbtCNPJ)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbtCPF))
-                            .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblObjeto)
-                            .addGroup(panDetalhesLayout.createSequentialGroup()
-                                .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnObjetos)))
-                        .addGap(18, 18, 18)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblConta)
-                            .addComponent(ftfConta, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSalvarDetalhes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnContas)))
+                .addContainerGap())
         );
 
-        panDetalhesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelarDetalhes, btnEditarDetalhes, btnSalvarDetalhes});
+        panDetalhesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelarDetalhes, btnContas, btnEditarDetalhes, btnSalvarDetalhes});
 
         panDetalhesLayout.setVerticalGroup(
             panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,9 +534,7 @@ public class diagDetalhes extends javax.swing.JDialog {
                     .addComponent(ftfAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblAgencia)
-                        .addComponent(lblConta))
+                    .addComponent(lblAgencia)
                     .addGroup(panDetalhesLayout.createSequentialGroup()
                         .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbtCNPJ)
@@ -550,7 +544,6 @@ public class diagDetalhes extends javax.swing.JDialog {
                         .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ftfConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnObjetos)
                             .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -575,8 +568,9 @@ public class diagDetalhes extends javax.swing.JDialog {
                 .addGroup(panDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarDetalhes)
                     .addComponent(btnCancelarDetalhes)
-                    .addComponent(btnSalvarDetalhes))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSalvarDetalhes)
+                    .addComponent(btnContas))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -617,7 +611,7 @@ public class diagDetalhes extends javax.swing.JDialog {
                 atualizarTabela();
                 JOptionPane.showMessageDialog(this, "Aditivo incluído com sucesso", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Erro ao incluir aditivo:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Erro ao incluir conta:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } else JOptionPane.showMessageDialog(this,"O preenchimento de todos os campos é obrigatório.",
                 "Mensagem", JOptionPane.WARNING_MESSAGE);
@@ -635,7 +629,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         cbxObjeto.setEnabled(true);
         ftfAssinatura.setEnabled(true);
         ftfVencimento.setEnabled(true);
-        ftfConta.setEnabled(true);
         ftfAno.setEnabled(true);
         btnSalvarDetalhes.setEnabled(true);
         btnCancelarDetalhes.setEnabled(true);
@@ -667,7 +660,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         ftfAssinatura.setText(new SimpleDateFormat("dd/MM/yyyy").format(ContratoPai.getAssinatura()));
         ftfAssinatura.setEnabled(false);
         ftfVencimento.setEnabled(false);
-        ftfConta.setEnabled(false);
         ftfAno.setEnabled(false);
         btnSalvarDetalhes.setEnabled(false);
         btnCancelarDetalhes.setEnabled(false);
@@ -682,7 +674,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         ContratoRollback.setAgencia(ContratoPai.getAgencia());
         ContratoRollback.setAno(ContratoPai.getAno());
         ContratoRollback.setAssinatura(ContratoPai.getAssinatura());
-        ContratoRollback.setConta(ContratoPai.getConta());
         ContratoRollback.setEndereco(ContratoPai.getEndereco());
         ContratoRollback.setIdentificador(ContratoPai.getIdentificador());
         ContratoRollback.setObjeto(ContratoPai.getObjeto());
@@ -717,7 +708,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         }
         ContratoPai.setReferencia(Integer.parseInt(txtReferencia.getText()));
         ContratoPai.setAgencia(Integer.parseInt(ftfAgencia.getText().trim()));
-        ContratoPai.setConta(Integer.parseInt(ftfConta.getText().trim()));
         ContratoPai.setIdentificador(vCPFCNPJ);
         ContratoPai.setObjeto(cbxObjeto.getSelectedItem().toString());
         ContratoPai.setEndereco(txtEndereco.getText());
@@ -737,7 +727,6 @@ public class diagDetalhes extends javax.swing.JDialog {
             ContratoPai.setAgencia(ContratoRollback.getAgencia());
             ContratoPai.setAno(ContratoRollback.getAno());
             ContratoPai.setAssinatura(ContratoRollback.getAssinatura());
-            ContratoPai.setConta(ContratoRollback.getConta());
             ContratoPai.setEndereco(ContratoRollback.getEndereco());
             ContratoPai.setIdentificador(ContratoRollback.getIdentificador());
             ContratoPai.setObjeto(ContratoRollback.getObjeto());
@@ -754,7 +743,6 @@ public class diagDetalhes extends javax.swing.JDialog {
             ContratoPai.setAgencia(ContratoRollback.getAgencia());
             ContratoPai.setAno(ContratoRollback.getAno());
             ContratoPai.setAssinatura(ContratoRollback.getAssinatura());
-            ContratoPai.setConta(ContratoRollback.getConta());
             ContratoPai.setEndereco(ContratoRollback.getEndereco());
             ContratoPai.setIdentificador(ContratoRollback.getIdentificador());
             ContratoPai.setObjeto(ContratoRollback.getObjeto());
@@ -775,7 +763,6 @@ public class diagDetalhes extends javax.swing.JDialog {
         cbxObjeto.setEnabled(false);
         ftfAssinatura.setEnabled(false);
         ftfVencimento.setEnabled(false);
-        ftfConta.setEnabled(false);
         ftfAno.setEnabled(false);
         btnSalvarDetalhes.setEnabled(false);
         btnCancelarDetalhes.setEnabled(false);
@@ -794,7 +781,7 @@ public class diagDetalhes extends javax.swing.JDialog {
             atualizarTabela();
             JOptionPane.showMessageDialog(this, "Alterações realizadas com sucesso.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Erro ao alterar aditivo(s):\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Erro ao alterar conta(s):\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
             }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -805,7 +792,7 @@ public class diagDetalhes extends javax.swing.JDialog {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(this, "Confirma a exclusão deste aditivo?", "Confirmação", JOptionPane.YES_NO_OPTION) == 
+        if (JOptionPane.showConfirmDialog(this, "Confirma a exclusão desta conta?", "Confirmação", JOptionPane.YES_NO_OPTION) == 
                 JOptionPane.YES_OPTION){
             if (tblAditivos.getSelectedRow() != -1){
                 try {
@@ -813,9 +800,9 @@ public class diagDetalhes extends javax.swing.JDialog {
                     atualizarTabela();
                     JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Erro ao excluir aditivo:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Erro ao excluir conta:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
                 }
-            } else JOptionPane.showMessageDialog(this, "Selecione um aditivo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else JOptionPane.showMessageDialog(this, "Selecione uma conta.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -853,9 +840,16 @@ public class diagDetalhes extends javax.swing.JDialog {
         new diagObjetos(null, true, this).setVisible(true);
     }//GEN-LAST:event_btnObjetosActionPerformed
 
+    private void btnContasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContasActionPerformed
+        // TODO add your handling code here:
+        diagContas diagContasInstancia = new diagContas(null, true, ContratoPai);
+        diagContasInstancia.setVisible(true);
+    }//GEN-LAST:event_btnContasActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdcionar;
     private javax.swing.JButton btnCancelarDetalhes;
+    private javax.swing.JButton btnContas;
     private javax.swing.JButton btnEditarDetalhes;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnObjetos;
@@ -867,7 +861,6 @@ public class diagDetalhes extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField ftfAssinatura;
     private javax.swing.JFormattedTextField ftfAssinaturaAditivo;
     private javax.swing.JFormattedTextField ftfCPFCNPJ;
-    private javax.swing.JFormattedTextField ftfConta;
     private javax.swing.JFormattedTextField ftfNumero;
     private javax.swing.JFormattedTextField ftfVencimento;
     private javax.swing.JFormattedTextField ftfVigencia;
@@ -876,7 +869,6 @@ public class diagDetalhes extends javax.swing.JDialog {
     private javax.swing.JLabel lblAgencia;
     private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblAssinaturaAditivo;
-    private javax.swing.JLabel lblConta;
     private javax.swing.JLabel lblDataAssinatura;
     private javax.swing.JLabel lblDataVencimento;
     private javax.swing.JLabel lblDataVigencia;

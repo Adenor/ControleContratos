@@ -109,20 +109,11 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblAgencia" max="32767" attributes="0"/>
-                                          <Component id="ftfAgencia" min="-2" pref="44" max="-2" attributes="0"/>
-                                      </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="lblConta" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="ftfConta" min="-2" pref="131" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblAgencia" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ftfAgencia" min="-2" pref="56" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -150,10 +141,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="lblAgencia" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblConta" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="lblAgencia" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbtCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -164,7 +152,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ftfCPFCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ftfAgencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ftfConta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnObjetos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbxObjeto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -233,11 +220,6 @@
     <Component class="javax.swing.JLabel" name="lblAgencia">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ag&#xea;ncia"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblConta">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Conta"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDataAssinatura">
@@ -318,13 +300,6 @@
     <Component class="javax.swing.JFormattedTextField" name="ftfAgencia">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="ftfAgencia.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;####&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Connection code="new javax.swing.text.DefaultFormatterFactory(mf)" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="ftfConta">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="ftfConta.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;##########&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Connection code="new javax.swing.text.DefaultFormatterFactory(mf)" type="code"/>
         </Property>
       </Properties>

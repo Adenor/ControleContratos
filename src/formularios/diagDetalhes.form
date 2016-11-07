@@ -134,7 +134,7 @@
                       <Component id="btnAdcionar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="spnAditivos" pref="230" max="32767" attributes="0"/>
+                  <Component id="spnAditivos" pref="220" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -275,23 +275,74 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDataAssinatura" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftfAssinatura" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtReferencia" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                      <Component id="lblReferencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ftfAno" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <Component id="lblAno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblRazao" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtRazao" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="txtEndereco" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblDataAssinatura" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ftfAssinatura" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblDataVencimento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ftfVencimento" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblDataVigencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ftfVigencia" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="rbtCNPJ" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="rbtCPF" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="ftfCPFCNPJ" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblObjeto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="cbxObjeto" min="-2" pref="192" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnObjetos" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblAgencia" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ftfAgencia" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDataVencimento" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftfVencimento" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDataVigencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftfVigencia" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnEditarDetalhes" linkSize="3" min="-2" max="-2" attributes="0"/>
@@ -299,55 +350,11 @@
                           <Component id="btnCancelarDetalhes" linkSize="3" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnSalvarDetalhes" linkSize="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtReferencia" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                              <Component id="lblReferencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ftfAno" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="lblAno" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblRazao" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtRazao" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="txtEndereco" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="rbtCNPJ" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="rbtCPF" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="ftfCPFCNPJ" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblObjeto" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="cbxObjeto" min="-2" pref="192" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnObjetos" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblAgencia" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ftfAgencia" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblConta" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftfConta" min="-2" pref="147" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnContas" linkSize="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -368,10 +375,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="lblAgencia" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblConta" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblAgencia" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="rbtCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -382,7 +386,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="ftfCPFCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ftfAgencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftfConta" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnObjetos" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbxObjeto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -415,8 +418,9 @@
                       <Component id="btnEditarDetalhes" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCancelarDetalhes" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSalvarDetalhes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnContas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -456,11 +460,6 @@
         <Component class="javax.swing.JLabel" name="lblAgencia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ag&#xea;ncia"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblConta">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Conta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDataAssinatura">
@@ -527,18 +526,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfAgencia.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;####&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftfConta">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.text.DefaultFormatterFactory(mf)" type="code"/>
-            </Property>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfConta.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;##########&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="ftfAno">
@@ -628,6 +615,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnContas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnContasActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

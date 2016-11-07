@@ -72,7 +72,6 @@ public class informConContrato extends javax.swing.JInternalFrame {
         txtReferencia = new javax.swing.JTextField();
         btnFiltrar = new javax.swing.JButton();
         lblAgencia = new javax.swing.JLabel();
-        txtAgencia = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
         ftfCPFCNPJ = new javax.swing.JFormattedTextField();
         rbtCPF = new javax.swing.JRadioButton();
@@ -94,6 +93,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
         cbxObjeto = new javax.swing.JComboBox();
         txtAno = new javax.swing.JTextField();
         lblAno = new javax.swing.JLabel();
+        ftfAgencia = new javax.swing.JFormattedTextField();
         scpContratos = new javax.swing.JScrollPane();
         tblContratos = new javax.swing.JTable();
 
@@ -127,8 +127,6 @@ public class informConContrato extends javax.swing.JInternalFrame {
 
         lblAgencia.setText("Agência");
 
-        txtAgencia.setNextFocusableComponent(cbxObjeto);
-
         btnLimpar.setText("Limpar Filtro");
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +140,6 @@ public class informConContrato extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         ftfCPFCNPJ.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        ftfCPFCNPJ.setNextFocusableComponent(txtAgencia);
 
         gpbCPFCNPJ.add(rbtCPF);
         rbtCPF.setText("CPF");
@@ -255,6 +252,15 @@ public class informConContrato extends javax.swing.JInternalFrame {
 
         lblAno.setText("Ano");
 
+        ftfAgencia.setFocusLostBehavior(3);
+        try {
+            MaskFormatter mf = new MaskFormatter("####");
+            mf.setValueContainsLiteralCharacters(false);
+            ftfAgencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mf));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout panConContratosLayout = new javax.swing.GroupLayout(panConContratos);
         panConContratos.setLayout(panConContratosLayout);
         panConContratosLayout.setHorizontalGroup(
@@ -297,7 +303,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panConContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAgencia)
-                            .addComponent(txtAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panConContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblObjeto)
@@ -356,8 +362,8 @@ public class informConContrato extends javax.swing.JInternalFrame {
                                             .addComponent(lblObjeto))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(panConContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panConContratosLayout.createSequentialGroup()
                                         .addGroup(panConContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(rbtCPF)
@@ -620,6 +626,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnTarifas;
     private javax.swing.JButton btnVencidos;
     private javax.swing.JComboBox cbxObjeto;
+    private javax.swing.JFormattedTextField ftfAgencia;
     private javax.swing.JFormattedTextField ftfCPFCNPJ;
     private javax.swing.JFormattedTextField ftfDataFinal;
     private javax.swing.JFormattedTextField ftfDataInicio;
@@ -639,7 +646,6 @@ public class informConContrato extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbtVigencia;
     private javax.swing.JScrollPane scpContratos;
     private javax.swing.JTable tblContratos;
-    private javax.swing.JTextField txtAgencia;
     private javax.swing.JTextField txtAno;
     private javax.swing.JTextField txtRazao;
     private javax.swing.JTextField txtReferencia;
@@ -720,7 +726,8 @@ public class informConContrato extends javax.swing.JInternalFrame {
     }
     
     private void limparCampos (){
-        txtAgencia.setText("");
+        ftfAgencia.setText("");
+        ftfAgencia.setValue(null);
         ftfCPFCNPJ.setText("");
         ftfCPFCNPJ.setValue(null);
         txtReferencia.setText("");
@@ -738,7 +745,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
         if (!txtReferencia.getText().trim().equals("")) Ret = true;
         else if (!txtAno.getText().trim().equals("")) Ret = true;
         else if (!ftfCPFCNPJ.getText().replaceAll("\\D", "").trim().equals("")) Ret = true;
-        else if (!txtAgencia.getText().equals("")) Ret = true;
+        else if (!ftfAgencia.getText().equals("")) Ret = true;
         else if (!txtRazao.getText().trim().equals("")) Ret = true;
         else if (cbxObjeto.getSelectedIndex()>=0) Ret = true;
         else if (!ftfDataInicio.getText().trim().equals("/  /")) Ret = true;
@@ -759,7 +766,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
             if (!(ftfCPFCNPJ.getText().replace("/", "").replace(".", "").replace("-", "").trim().equals("")) ||
                     !(ftfCPFCNPJ.getValue() == null)) Identifi = ftfCPFCNPJ.getText().replace("/", "").replace(".", "").replace("-", "");
             if (cbxObjeto.getSelectedIndex() >= 0) Obj = cbxObjeto.getSelectedItem().toString();
-            String Dados [] = {txtReferencia.getText(), Identifi, txtAno.getText(), txtAgencia.getText(), 
+            String Dados [] = {txtReferencia.getText(), Identifi, txtAno.getText(), ftfAgencia.getText(), 
                 txtRazao.getText(), Obj, DtI, DtF, rbtVigencia.getName(), btaIndeterminado.getName()};
             try {
                 vListaContr = vCtrlContratos.ListarComMultiplosFiltros(Dados);
