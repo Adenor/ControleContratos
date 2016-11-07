@@ -745,7 +745,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
         if (!txtReferencia.getText().trim().equals("")) Ret = true;
         else if (!txtAno.getText().trim().equals("")) Ret = true;
         else if (!ftfCPFCNPJ.getText().replaceAll("\\D", "").trim().equals("")) Ret = true;
-        else if (!ftfAgencia.getText().equals("")) Ret = true;
+        else if (!ftfAgencia.getText().trim().equals("")) Ret = true;
         else if (!txtRazao.getText().trim().equals("")) Ret = true;
         else if (cbxObjeto.getSelectedIndex()>=0) Ret = true;
         else if (!ftfDataInicio.getText().trim().equals("/  /")) Ret = true;
