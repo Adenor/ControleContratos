@@ -18,8 +18,8 @@ import utilidade.ConfigUtil;
 
 public class formPrincipal extends javax.swing.JFrame {
     ConfigUtil configUtil = new ConfigUtil();
-    informCadContratos informCadContratosIns = new informCadContratos();
-    informConContrato informConsultaIns = new informConContrato();
+    informCadContratos informCadContratosIns = null;
+    informConContrato informConsultaIns = null;
     public static final String SERVIDOR = "Suret_Geseb_008";
     public static final String USUARIO = "root";
     public static final String SENHA = "2351";
@@ -117,7 +117,7 @@ public class formPrincipal extends javax.swing.JFrame {
     private void mniCadContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCadContratoActionPerformed
         // TODO add your handling code here:
         if (informCadContratosIns == null || !informCadContratosIns.isVisible()){
-            dpnPrincipal.remove(informCadContratosIns);
+            if (informCadContratosIns != null) dpnPrincipal.remove(informCadContratosIns);
             informCadContratosIns = new informCadContratos();
             dpnPrincipal.add(informCadContratosIns);
             informCadContratosIns.setLocation((dpnPrincipal.getWidth() - informCadContratosIns.getWidth()) / 2,
@@ -137,7 +137,7 @@ public class formPrincipal extends javax.swing.JFrame {
     private void mniConContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniConContratoActionPerformed
         // TODO add your handling code here:
         if (informConsultaIns == null || !informConsultaIns.isVisible()){
-            dpnPrincipal.remove(informConsultaIns);
+            if (informConsultaIns != null) dpnPrincipal.remove(informConsultaIns);
             informConsultaIns = new informConContrato();
             dpnPrincipal.add(informConsultaIns);
             informConsultaIns.setLocation((dpnPrincipal.getWidth() - informConsultaIns.getWidth()) / 2,

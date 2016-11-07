@@ -47,11 +47,11 @@ public class diagContas extends javax.swing.JDialog {
         }
         DefaultTableModel vModelo = (DefaultTableModel) tblContas.getModel();
         vModelo.setNumRows(0);
-        for(Contas contTarif : vListaCont) {
+        for(Contas contConta : vListaCont) {
             vModelo.addRow(new String[3]);
-            vModelo.setValueAt(dfC.format(contTarif.getNumero()), vModelo.getRowCount()-1, 2);
-            vModelo.setValueAt(dfA.format(contTarif.getAgencia()), vModelo.getRowCount()-1, 1);
-            vModelo.setValueAt(contTarif.getDescricao(), vModelo.getRowCount()-1, 0);
+            vModelo.setValueAt(dfC.format(contConta.getNumero()), vModelo.getRowCount()-1, 2);
+            vModelo.setValueAt(dfA.format(contConta.getAgencia()), vModelo.getRowCount()-1, 1);
+            vModelo.setValueAt(contConta.getDescricao(), vModelo.getRowCount()-1, 0);
         }
     }
     
@@ -206,16 +206,22 @@ public class diagContas extends javax.swing.JDialog {
 
     private void btnAdcionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdcionarActionPerformed
         // TODO add your handling code here:
+        if (txtDescricao.getText().trim().equals("") || ftfAgencia.getText().trim().equals("") || ftfNumero.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         try {
-            Contas vTarifa = new Contas(Pai, txtDescricao.getText(), Integer.parseInt(ftfAgencia.getText()),
-                    Integer.parseInt(ftfNumero.getText()));
-            vCtrlContas.Incluir(vTarifa);
+            Contas vConta = new Contas(Pai, txtDescricao.getText().trim(), Integer.parseInt(ftfAgencia.getText().trim()),
+                    Integer.parseInt(ftfNumero.getText().trim()));
+            vCtrlContas.Incluir(vConta);
             txtDescricao.setText("");
             ftfNumero.setValue(null);
-            txtDescricao.setText("");
+            ftfNumero.setText("");
+            ftfAgencia.setValue(null);
+            ftfAgencia.setText("");
             atualizarTabela();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao incluir Tarifa\n" + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Erro ao incluir Conta\n" + ex, "Erro!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAdcionarActionPerformed
 
@@ -224,29 +230,32 @@ public class diagContas extends javax.swing.JDialog {
         try {
             for (int i = 0; i < tblContas.getRowCount(); i++) {
                 vListaCont.get(i).setDescricao(tblContas.getValueAt(i, 0).toString());
-                vListaCont.get(i).setNumero(Integer.parseInt(ftfNumero.getValue().toString()));
+                vListaCont.get(i).setAgencia(Integer.parseInt(tblContas.getValueAt(i, 1).toString()));
+                vListaCont.get(i).setNumero(Integer.parseInt(tblContas.getValueAt(i, 1).toString()));
                 vCtrlContas.Alterar(vListaCont.get(i));
             }
             atualizarTabela();
             JOptionPane.showMessageDialog(this, "Contas alteradas com sucesso", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Erro ao alterar Tarifa:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Erro ao alterar Conta:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
         }                                         
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(this, "Confirma a exclusão desta Tarifa?", "Confirmação", JOptionPane.YES_NO_OPTION) == 
-                JOptionPane.YES_OPTION){
-            if (tblContas.getSelectedRow() != -1){
-                try {
-                    vCtrlContas.Excluir(vListaCont.get(tblContas.getSelectedRow()));
-                    atualizarTabela();
-                    JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "Erro ao excluir Tarifa:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-            } else JOptionPane.showMessageDialog(this, "Selecione um Tarifa.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        if (tblContas.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(this, "Selecione uma conta", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (JOptionPane.showConfirmDialog(this, "Confirma a exclusão desta Conta?", "Confirmação", JOptionPane.YES_NO_OPTION) == 
+            JOptionPane.YES_OPTION){
+            try {
+                vCtrlContas.Excluir(vListaCont.get(tblContas.getSelectedRow()));
+                atualizarTabela();
+                JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Erro ao excluir Conta:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
