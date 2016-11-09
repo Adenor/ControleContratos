@@ -254,7 +254,6 @@ public class diagContas extends javax.swing.JDialog {
             try {
                 vCtrlContas.Excluir(vListaCont.get(tblContas.getSelectedRow()));
                 atualizarTabela();
-                JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Erro ao excluir Conta:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
             }
