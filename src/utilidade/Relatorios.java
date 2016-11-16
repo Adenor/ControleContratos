@@ -60,7 +60,6 @@ public class Relatorios {
         if (Valores.length>0)runner.setParameterValues(Parametros);// optional (for no parameters);
         runner.setFormat(ReportRunner.PDF_FORMAT);
         runner.run(new FileOutputStream("./Contratos.pdf"));
-        MostrarRelatorio("./Contratos.pdf");
     }
     
     public void MostrarRelatorio(String Relatorio) throws URISyntaxException {

@@ -467,6 +467,26 @@ public class informConContrato extends javax.swing.JInternalFrame {
 
     private void btnEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmailActionPerformed
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Relatorios Relat = new Relatorios();
+            Integer[] vIdFiltroTemp;
+            List<Contratos> vListaContrTemp;
+            vListaContrTemp = vCtrlContratos.ListarVencidos();
+            if (vListaContrTemp != null && vListaContrTemp.size() > 0){
+                vIdFiltroTemp = new Integer[vListaContrTemp.size()];
+                System.out.println(vListaContrTemp.size());
+                for (int i = 0; i < vListaContrTemp.size(); i++) {
+                    vIdFiltroTemp[i] = vListaContrTemp.get(i).getIdContrato();
+                }
+                Relat.runReport("filtro", vIdFiltroTemp);
+            } else {
+                JOptionPane.showMessageDialog(this, "Nenhum contrato prestes a vencer encontrado",
+                    "Controle Contratos", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String toAddress;
         String subject = "Contratos Vencidos";
         String message;
@@ -504,6 +524,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
                     vIdFiltroTemp[i] = vListaContrTemp.get(i).getIdContrato();
                 }
                 Relat.runReport("filtro", vIdFiltroTemp);
+                Relat.MostrarRelatorio("Contratos.pdf");
             } else {
                 JOptionPane.showMessageDialog(this, "Nenhum contrato prestes a vencer encontrado",
                     "Controle Contratos", JOptionPane.INFORMATION_MESSAGE);
@@ -527,6 +548,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
         Relatorios Relat = new Relatorios();
         try {
             Relat.runReport("filtro", vIdFiltro);
+            Relat.MostrarRelatorio("./Contratos.pdf");
         } catch (Exception ex) {
             Logger.getLogger(diagDetalhes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -555,11 +577,10 @@ public class informConContrato extends javax.swing.JInternalFrame {
             try {
                 vCtrlContratos.Excluir(vListaContr.get(tblContratos.getSelectedRow()));
                 atualizarTabela(false);
-                JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso.", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Erro ao excluir aditivo:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Erro ao excluir o Contrato:\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
             }
-        } else JOptionPane.showMessageDialog(this, "Selecione um aditivo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else JOptionPane.showMessageDialog(this, "Selecione um Contrato.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -766,8 +787,8 @@ public class informConContrato extends javax.swing.JInternalFrame {
             if (!(ftfCPFCNPJ.getText().replace("/", "").replace(".", "").replace("-", "").trim().equals("")) ||
                     !(ftfCPFCNPJ.getValue() == null)) Identifi = ftfCPFCNPJ.getText().replace("/", "").replace(".", "").replace("-", "");
             if (cbxObjeto.getSelectedIndex() >= 0) Obj = cbxObjeto.getSelectedItem().toString();
-            String Dados [] = {txtReferencia.getText(), Identifi, txtAno.getText(), ftfAgencia.getText(), 
-                txtRazao.getText(), Obj, DtI, DtF, rbtVigencia.getName(), btaIndeterminado.getName()};
+            String Dados [] = {txtReferencia.getText().trim(), Identifi, txtAno.getText().trim(), ftfAgencia.getText().trim(), 
+                txtRazao.getText().trim(), Obj, DtI, DtF, rbtVigencia.getName(), btaIndeterminado.getName()};
             try {
                 vListaContr = vCtrlContratos.ListarComMultiplosFiltros(Dados);
             } catch (Exception ex) {

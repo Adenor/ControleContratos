@@ -28,7 +28,7 @@ public class ControleContratos {
             Sessao.getTransaction().commit();
         } catch ( Exception ex) {
             Sessao.getTransaction().rollback();
-            throw new Exception(ex.getCause());
+            throw new Exception(ex);
         }
     }
     
@@ -39,7 +39,7 @@ public class ControleContratos {
             Sessao.getTransaction().commit();
         } catch ( Exception ex) {
             Sessao.getTransaction().rollback();
-            throw new Exception(ex.getCause());
+            throw new Exception(ex);
         }
     }
     
@@ -50,7 +50,7 @@ public class ControleContratos {
             Sessao.getTransaction().commit();
         } catch ( Exception ex) {
             Sessao.getTransaction().rollback();
-            throw new Exception(ex.getCause());
+            throw new Exception(ex);
         }
     }
     
@@ -60,9 +60,9 @@ public class ControleContratos {
                     + " ORDER BY agencia AND vigencia").addEntity(Contratos.class);
             return Consulta.list();
         } catch (HibernateException he) {
-            throw new HibernateException(he.getCause());
+            throw new HibernateException(he);
         } catch (ExceptionInInitializerError ex){
-            throw new ExceptionInInitializerError(ex.getCause());
+            throw new ExceptionInInitializerError(ex);
         }
     }
     
@@ -103,9 +103,9 @@ public class ControleContratos {
             }
             return Consulta.list();
         } catch (HibernateException he) {
-            throw new HibernateException(he.getCause());
+            throw new HibernateException(he);
         } catch (ExceptionInInitializerError ex){
-            throw new ExceptionInInitializerError(ex.getCause());
+            throw new ExceptionInInitializerError(ex);
         }
     }
     
@@ -122,7 +122,7 @@ public class ControleContratos {
                DtF = tempDados[7];
         String Op = "", Sep = "", vSQL = "";
         try {
-            if (!tempDados[0].equals("")) Dados[0]= "con.referencia = : ref ";
+            if (!tempDados[0].equals("")) Dados[0]= "con.referencia = :ref ";
             if (!tempDados[1].equals("")) Dados[1]= "con.identificador = :ide ";
             if (!tempDados[2].equals("")) Dados[2]= "con.ano = :ano ";
             if (!tempDados[3].equals("")) Dados[3]= "con.agencia = :age";
@@ -170,9 +170,9 @@ public class ControleContratos {
             }
             return Consulta.list();
         } catch (HibernateException he) {
-            throw new HibernateException(he.getCause());
+            throw new HibernateException(he);
         } catch (ExceptionInInitializerError ex){
-            throw new ExceptionInInitializerError(ex.getCause());
+            throw new ExceptionInInitializerError(ex);
         }
     }
     
@@ -188,9 +188,9 @@ public class ControleContratos {
                     + "' AND '" + DataFinal + "' ORDER BY agencia AND vigencia;");
             return Consulta.list();
         } catch (HibernateException he) {
-            throw new HibernateException(he.getCause());
+            throw new HibernateException(he);
         } catch (ExceptionInInitializerError ex){
-            throw new ExceptionInInitializerError(ex.getCause());
+            throw new ExceptionInInitializerError(ex);
         }
     }
     
