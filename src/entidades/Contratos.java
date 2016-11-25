@@ -1,10 +1,10 @@
 package entidades;
-// Generated 04/11/2016 16:56:09 by Hibernate Tools 4.3.1
+// Generated 21/11/2016 12:48:18 by Hibernate Tools 4.3.1
 
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name="contratos"
     ,catalog="contratosbd"
-    , uniqueConstraints = @UniqueConstraint(columnNames={"Referencia", "Ano"}) 
+    , uniqueConstraints = @UniqueConstraint(columnNames={"idContrato", "Referencia", "Ano"}) 
 )
 public class Contratos  implements java.io.Serializable {
 
@@ -39,9 +39,9 @@ public class Contratos  implements java.io.Serializable {
      private Date assinatura;
      private Date vencimento;
      private Date vigencia;
-     private Set<Tarifas> tarifases = new HashSet<Tarifas>(0);
-     private Set<Contas> contases = new HashSet<Contas>(0);
-     private Set<Aditivos> aditivoses = new HashSet<Aditivos>(0);
+     private List<Tarifas> tarifases = new ArrayList<Tarifas>(0);
+     private List<Contas> contases = new ArrayList<Contas>(0);
+     private List<Aditivos> aditivoses = new ArrayList<Aditivos>(0);
 
     public Contratos() {
     }
@@ -56,7 +56,7 @@ public class Contratos  implements java.io.Serializable {
         this.objeto = objeto;
         this.assinatura = assinatura;
     }
-    public Contratos(long referencia, int ano, String razao, String identificador, String endereco, int agencia, String objeto, Date assinatura, Date vencimento, Date vigencia, Set<Tarifas> tarifases, Set<Contas> contases, Set<Aditivos> aditivoses) {
+    public Contratos(long referencia, int ano, String razao, String identificador, String endereco, int agencia, String objeto, Date assinatura, Date vencimento, Date vigencia, List<Tarifas> tarifases, List<Contas> contases, List<Aditivos> aditivoses) {
        this.referencia = referencia;
        this.ano = ano;
        this.razao = razao;
@@ -185,29 +185,29 @@ public class Contratos  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
-    public Set<Tarifas> getTarifases() {
+    public List<Tarifas> getTarifases() {
         return this.tarifases;
     }
     
-    public void setTarifases(Set<Tarifas> tarifases) {
+    public void setTarifases(List<Tarifas> tarifases) {
         this.tarifases = tarifases;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
-    public Set<Contas> getContases() {
+    public List<Contas> getContases() {
         return this.contases;
     }
     
-    public void setContases(Set<Contas> contases) {
+    public void setContases(List<Contas> contases) {
         this.contases = contases;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="contratos")
-    public Set<Aditivos> getAditivoses() {
+    public List<Aditivos> getAditivoses() {
         return this.aditivoses;
     }
     
-    public void setAditivoses(Set<Aditivos> aditivoses) {
+    public void setAditivoses(List<Aditivos> aditivoses) {
         this.aditivoses = aditivoses;
     }
 

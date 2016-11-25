@@ -64,7 +64,7 @@ public class diagDetalhes extends javax.swing.JDialog {
     
     public void atualizarTabela(){
         try {
-            vListaAdit = vCtrlAdit.ListarTodos(ContratoPai);
+            vListaAdit = ContratoPai.getAditivoses();
         } catch (Exception ex) {
             Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
         }

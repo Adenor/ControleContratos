@@ -10,6 +10,7 @@ import entidades.Contratos;
 import entidades.Tarifas;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,7 +41,7 @@ public class diagTarifas extends javax.swing.JDialog {
     private void atualizarTabela(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
         try {
-            vListaTarif = vCtrlTarifas.ListarTodos(Pai);
+            vListaTarif = Pai.getTarifases();//vCtrlTarifas.ListarTodos(Pai);
         } catch (Exception ex) {
             Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
         }

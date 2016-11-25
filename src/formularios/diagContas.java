@@ -41,7 +41,7 @@ public class diagContas extends javax.swing.JDialog {
         DecimalFormat dfA = new DecimalFormat("0000");
         
         try {
-            vListaCont = vCtrlContas.ListarTodos(Pai);
+            vListaCont = Pai.getContases();
         } catch (Exception ex) {
             Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
         }

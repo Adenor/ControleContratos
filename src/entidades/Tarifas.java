@@ -1,5 +1,5 @@
 package entidades;
-// Generated 04/11/2016 16:56:09 by Hibernate Tools 4.3.1
+// Generated 21/11/2016 12:48:18 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
