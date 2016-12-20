@@ -12,6 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.text.AbstractDocument;
+import utilidade.FiltroTexto;
 
 /**
  *
@@ -86,6 +88,8 @@ public class diagObjetos extends javax.swing.JDialog {
                 btnIncluirActionPerformed(evt);
             }
         });
+
+        ((AbstractDocument) txtObjeto.getDocument()).setDocumentFilter(new FiltroTexto(45));
 
         lblObjeto.setText("Objeto");
 

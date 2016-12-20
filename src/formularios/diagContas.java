@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AbstractDocument;
+import utilidade.FiltroTexto;
 
 /**
  *
@@ -34,6 +36,7 @@ public class diagContas extends javax.swing.JDialog {
         initComponents();
         this.Pai = Pai;
         atualizarTabela();
+        
     }
     
     private void atualizarTabela(){
@@ -41,7 +44,7 @@ public class diagContas extends javax.swing.JDialog {
         DecimalFormat dfA = new DecimalFormat("0000");
         
         try {
-            vListaCont = Pai.getContases();
+            vListaCont = vCtrlContas.ListarTodos(Pai);
         } catch (Exception ex) {
             Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -121,6 +124,8 @@ public class diagContas extends javax.swing.JDialog {
                 btnAlterarActionPerformed(evt);
             }
         });
+
+        ((AbstractDocument) txtDescricao.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(25));
 
         try {
             ftfNumero.setFocusLostBehavior(3);

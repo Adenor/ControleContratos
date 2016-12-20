@@ -161,6 +161,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDescricao">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtDescricao.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(25));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="ftfNumero">
       <Properties>

@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="ContratosBD"/>
-  <table-filter match-name="objetos"/>
   <table-filter match-name="contas"/>
-  <table-filter match-name="tarifas"/>
-  <table-filter match-name="aditivos"/>
   <table-filter match-name="contratos"/>
+  <table-filter match-name="aditivos"/>
+  <table-filter match-name="objetos"/>
+  <table-filter match-name="tarifas"/>
 </hibernate-reverse-engineering>

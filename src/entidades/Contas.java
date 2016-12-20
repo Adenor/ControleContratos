@@ -1,5 +1,5 @@
 package entidades;
-// Generated 21/11/2016 12:48:18 by Hibernate Tools 4.3.1
+// Generated 20/12/2016 12:50:28 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;

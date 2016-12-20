@@ -90,6 +90,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtObjeto">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtObjeto.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(45));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblObjeto">
       <Properties>

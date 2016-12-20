@@ -55,72 +55,62 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panContas" linkSize="2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panTarifas" linkSize="2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtEndereco" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="rbtCNPJ" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="rbtCPF" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDataAssinatura" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ftfAssinatura" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDataVencimento" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ftfVencimento" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDataVigencia" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="ftfVigencia" min="-2" pref="130" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnAdcionar" linkSize="1" min="-2" pref="123" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnLimpar" linkSize="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="brnFechar" linkSize="1" min="-2" pref="143" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Component id="ftfCPFCNPJ" min="-2" pref="144" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblObjeto" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="cbxObjeto" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnObjetos" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="rbtCNPJ" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="rbtCPF" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="ftfCPFCNPJ" min="-2" pref="144" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblObjeto" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="cbxObjeto" min="-2" pref="250" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnObjetos" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblAgencia" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ftfAgencia" min="-2" pref="56" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblAgencia" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ftfAgencia" min="-2" pref="56" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblDataAssinatura" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ftfAssinatura" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblDataVencimento" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ftfVencimento" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblDataVigencia" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ftfVigencia" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="478" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="PanAditivos" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAdcionar" linkSize="1" min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="btnLimpar" linkSize="1" min="-2" pref="133" max="-2" attributes="0"/>
-                          <Component id="brnFechar" linkSize="1" min="-2" pref="143" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="txtEndereco" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -174,7 +164,12 @@
                   <Group type="102" attributes="0">
                       <Component id="lblDataVigencia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ftfVigencia" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ftfVigencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdcionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="brnFechar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="lblDataAssinatura" min="-2" max="-2" attributes="0"/>
@@ -182,27 +177,7 @@
                       <Component id="ftfAssinatura" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="panTarifas" max="32767" attributes="0"/>
-                          <Component id="panContas" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="PanAditivos" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnAdcionar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="brnFechar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -214,8 +189,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtReferencia">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtReferencia.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(10, true));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtRazao">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtRazao.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(100));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblRazao">
       <Properties>
@@ -223,6 +204,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEndereco">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtEndereco.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(200));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEndereco">
       <Properties>
@@ -371,474 +355,5 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Container class="javax.swing.JPanel" name="panContas">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Contas"/>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblContaDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblContaAgencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ftfContaAgencia" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblContaNumero" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ftfContaNumero" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtContaDescricao" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnContaAd" linkSize="5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnContaRem" linkSize="5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnContaAlt" linkSize="5" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="405" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnContaAd" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnContaRem" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnContaAlt" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblContaDescricao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtContaDescricao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblContaNumero" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ftfContaNumero" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblContaAgencia" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ftfContaAgencia" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="68" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JButton" name="btnContaAd">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Adcionar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnContaRem">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Remover"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnContaAlt">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftfContaAgencia">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(&quot;####&quot;))" type="code"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try {&#xa;ftfAgencia.setFocusLostBehavior(3);"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftfContaNumero">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter(&quot;###########&quot;))" type="code"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try {&#xa;ftfAgencia.setFocusLostBehavior(3);"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtContaDescricao">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblContaAgencia">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ag&#xea;ncia"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblContaNumero">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblContaDescricao">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="tblContas">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="0">
-                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
-                    <Column editable="true" title="Ag&#xea;ncia" type="java.lang.String"/>
-                    <Column editable="true" title="N&#xfa;mero" type="java.lang.String"/>
-                  </Table>
-                </Property>
-                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="panTarifas">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Tarifas"/>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTarifaDescricao" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTarifaDescricao" min="-2" pref="283" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTarifaValor" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftfTarifaValor" alignment="0" pref="63" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnTarifaAd" linkSize="7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnTarifaRem" linkSize="7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnTarifaAlt" linkSize="7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblTarifaValor" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ftfTarifaValor" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnTarifaAd" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnTarifaRem" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnTarifaAlt" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblTarifaDescricao" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtTarifaDescricao" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="118" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtTarifaDescricao">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTarifaDescricao">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTarifaValor">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Valor"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftfTarifaValor">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#,##0.00" subtype="-1" type="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfAgencia.setFocusLostBehavior(3);"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnTarifaAd">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Adcionar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnTarifaRem">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Remover"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnTarifaAlt">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="tblTarifas">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="2" rowCount="0">
-                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
-                    <Column editable="true" title="Valor (R$)" type="java.lang.String"/>
-                  </Table>
-                </Property>
-                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="PanAditivos">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Aditivos"/>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="spnAditivos" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="btnAditivoAd" linkSize="9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnAditivoRem" linkSize="9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnAditivoAlt" linkSize="9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ftfAditivoNumero" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="lblAditivoNumero" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtAditivoDescricao" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                      <Component id="lblAditivoDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblAditivoAssinatura" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ftfAditivoAssinatura" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnAditivoAd" linkSize="10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAditivoRem" linkSize="10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAditivoAlt" linkSize="10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblAditivoNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblAditivoDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ftfAditivoNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtAditivoDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblAditivoAssinatura" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ftfAditivoAssinatura" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="spnAditivos" pref="108" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JButton" name="btnAditivoAd">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Adcionar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAditivoRem">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Remover"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAditivoAlt">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftfAditivoNumero">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#,###" subtype="-1" type="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftfAditivoNumeroFocusLost"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAditivoNumero">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xba;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAditivoDescricao">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtAditivoDescricao">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAditivoAssinatura">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Data da Assinatura"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftfAditivoAssinatura">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="0" type="1"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="4"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="spnAditivos">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="tblAditivos">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="0">
-                    <Column editable="true" title="N&#xfa;mero" type="java.lang.Integer"/>
-                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Assinatura" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-                <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
-                  <JTableSelectionModel selectionMode="0"/>
-                </Property>
-                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
   </SubComponents>
 </Form>

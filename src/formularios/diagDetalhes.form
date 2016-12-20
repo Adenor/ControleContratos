@@ -175,6 +175,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDescricao">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtDescricao.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(250));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNumero">
           <Properties>

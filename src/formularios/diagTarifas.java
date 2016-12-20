@@ -10,12 +10,13 @@ import entidades.Contratos;
 import entidades.Tarifas;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AbstractDocument;
+import utilidade.FiltroTexto;
 
 /**
  *
@@ -41,7 +42,7 @@ public class diagTarifas extends javax.swing.JDialog {
     private void atualizarTabela(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
         try {
-            vListaTarif = Pai.getTarifases();//vCtrlTarifas.ListarTodos(Pai);
+            vListaTarif = vCtrlTarifas.ListarTodos(Pai);
         } catch (Exception ex) {
             Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -117,6 +118,8 @@ public class diagTarifas extends javax.swing.JDialog {
                 btnAlterarActionPerformed(evt);
             }
         });
+
+        ((AbstractDocument) txtDescricao.getDocument()).setDocumentFilter(new FiltroTexto(15));
 
         ftfValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 

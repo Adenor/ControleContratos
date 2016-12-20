@@ -5,8 +5,11 @@
  */
 package formularios;
 
+import controle.ControleAditivos;
+import controle.ControleContas;
 import controle.ControleContratos;
 import controle.ControleObjetos;
+import controle.ControleTarifas;
 import entidades.Contratos;
 import entidades.Objetos;
 import java.awt.event.ActionEvent;
@@ -16,8 +19,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import utilidade.FiltroTexto;
 import utilidade.Validadores;
 
 /**
@@ -25,7 +30,10 @@ import utilidade.Validadores;
  * @author amrsilva
  */
 public class informCadContratos extends javax.swing.JInternalFrame {
-
+    ControleContratos vCtrlContratos = new ControleContratos();
+    ControleAditivos vCtrlAditivos = new ControleAditivos();
+    ControleContas vCtrlContas = new ControleContas();
+    ControleTarifas vCtrlTarifas = new ControleTarifas();
     /**
      * Creates new form informCadContratos
      */
@@ -61,7 +69,7 @@ public class informCadContratos extends javax.swing.JInternalFrame {
             Logger.getLogger(diagObjetos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,40 +105,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         ftfVigencia = new javax.swing.JFormattedTextField();
         btnObjetos = new javax.swing.JButton();
         cbxObjeto = new javax.swing.JComboBox();
-        panContas = new javax.swing.JPanel();
-        btnContaAd = new javax.swing.JButton();
-        btnContaRem = new javax.swing.JButton();
-        btnContaAlt = new javax.swing.JButton();
-        ftfContaAgencia = new javax.swing.JFormattedTextField();
-        ftfContaNumero = new javax.swing.JFormattedTextField();
-        txtContaDescricao = new javax.swing.JTextField();
-        lblContaAgencia = new javax.swing.JLabel();
-        lblContaNumero = new javax.swing.JLabel();
-        lblContaDescricao = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblContas = new javax.swing.JTable();
-        panTarifas = new javax.swing.JPanel();
-        txtTarifaDescricao = new javax.swing.JTextField();
-        lblTarifaDescricao = new javax.swing.JLabel();
-        lblTarifaValor = new javax.swing.JLabel();
-        ftfTarifaValor = new javax.swing.JFormattedTextField();
-        btnTarifaAd = new javax.swing.JButton();
-        btnTarifaRem = new javax.swing.JButton();
-        btnTarifaAlt = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblTarifas = new javax.swing.JTable();
-        PanAditivos = new javax.swing.JPanel();
-        btnAditivoAd = new javax.swing.JButton();
-        btnAditivoRem = new javax.swing.JButton();
-        btnAditivoAlt = new javax.swing.JButton();
-        ftfAditivoNumero = new javax.swing.JFormattedTextField();
-        lblAditivoNumero = new javax.swing.JLabel();
-        lblAditivoDescricao = new javax.swing.JLabel();
-        txtAditivoDescricao = new javax.swing.JTextField();
-        lblAditivoAssinatura = new javax.swing.JLabel();
-        ftfAditivoAssinatura = new javax.swing.JFormattedTextField();
-        spnAditivos = new javax.swing.JScrollPane();
-        tblAditivos = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -139,7 +113,13 @@ public class informCadContratos extends javax.swing.JInternalFrame {
 
         lblReferencia.setText("Número");
 
+        ((AbstractDocument) txtReferencia.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(10, true));
+
+        ((AbstractDocument) txtRazao.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(100));
+
         lblRazao.setText("Razão Social / Nome");
+
+        ((AbstractDocument) txtEndereco.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(200));
 
         lblEndereco.setText("Endereço");
 
@@ -234,313 +214,6 @@ public class informCadContratos extends javax.swing.JInternalFrame {
             }
         });
 
-        panContas.setBorder(javax.swing.BorderFactory.createTitledBorder("Contas"));
-
-        btnContaAd.setText("Adcionar");
-
-        btnContaRem.setText("Remover");
-
-        btnContaAlt.setText("Alterar");
-
-        try {
-            ftfAgencia.setFocusLostBehavior(3);
-            ftfContaAgencia.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            ftfAgencia.setFocusLostBehavior(3);
-            ftfContaNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        lblContaAgencia.setText("Agência");
-
-        lblContaNumero.setText("Número");
-
-        lblContaDescricao.setText("Descrição");
-
-        tblContas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Descrição", "Agência", "Número"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblContas);
-
-        javax.swing.GroupLayout panContasLayout = new javax.swing.GroupLayout(panContas);
-        panContas.setLayout(panContasLayout);
-        panContasLayout.setHorizontalGroup(
-            panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panContasLayout.createSequentialGroup()
-                .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panContasLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblContaDescricao)
-                            .addGroup(panContasLayout.createSequentialGroup()
-                                .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblContaAgencia)
-                                    .addComponent(ftfContaAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblContaNumero)
-                                    .addComponent(ftfContaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(196, 196, 196))
-                            .addComponent(txtContaDescricao)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panContasLayout.createSequentialGroup()
-                        .addComponent(btnContaAd)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnContaRem)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnContaAlt)))
-                .addContainerGap())
-            .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panContasLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        panContasLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnContaAd, btnContaAlt, btnContaRem});
-
-        panContasLayout.setVerticalGroup(
-            panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panContasLayout.createSequentialGroup()
-                .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnContaAd)
-                    .addComponent(btnContaRem)
-                    .addComponent(btnContaAlt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblContaDescricao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panContasLayout.createSequentialGroup()
-                        .addComponent(lblContaNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ftfContaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panContasLayout.createSequentialGroup()
-                        .addComponent(lblContaAgencia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ftfContaAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panContasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panContasLayout.createSequentialGroup()
-                    .addGap(152, 152, 152)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-
-        panContasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnContaAd, btnContaAlt, btnContaRem});
-
-        panTarifas.setBorder(javax.swing.BorderFactory.createTitledBorder("Tarifas"));
-
-        lblTarifaDescricao.setText("Descrição");
-
-        lblTarifaValor.setText("Valor");
-
-        ftfAgencia.setFocusLostBehavior(3);
-        ftfTarifaValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-
-        btnTarifaAd.setText("Adcionar");
-
-        btnTarifaRem.setText("Remover");
-
-        btnTarifaAlt.setText("Alterar");
-
-        tblTarifas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Descrição", "Valor (R$)"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblTarifas);
-
-        javax.swing.GroupLayout panTarifasLayout = new javax.swing.GroupLayout(panTarifas);
-        panTarifas.setLayout(panTarifasLayout);
-        panTarifasLayout.setHorizontalGroup(
-            panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panTarifasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panTarifasLayout.createSequentialGroup()
-                        .addGroup(panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTarifaDescricao)
-                            .addComponent(txtTarifaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTarifaValor)
-                            .addComponent(ftfTarifaValor, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
-                        .addGap(59, 59, 59))
-                    .addGroup(panTarifasLayout.createSequentialGroup()
-                        .addComponent(btnTarifaAd)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTarifaRem)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTarifaAlt)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTarifasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-
-        panTarifasLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnTarifaAd, btnTarifaAlt, btnTarifaRem});
-
-        panTarifasLayout.setVerticalGroup(
-            panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTarifasLayout.createSequentialGroup()
-                .addGroup(panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panTarifasLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTarifaValor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ftfTarifaValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTarifasLayout.createSequentialGroup()
-                        .addGroup(panTarifasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTarifaAd)
-                            .addComponent(btnTarifaRem)
-                            .addComponent(btnTarifaAlt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTarifaDescricao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTarifaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        panTarifasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnTarifaAd, btnTarifaAlt, btnTarifaRem});
-
-        PanAditivos.setBorder(javax.swing.BorderFactory.createTitledBorder("Aditivos"));
-
-        btnAditivoAd.setText("Adcionar");
-
-        btnAditivoRem.setText("Remover");
-
-        btnAditivoAlt.setText("Alterar");
-
-        ftfAditivoNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###"))));
-        ftfAditivoNumero.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ftfAditivoNumeroFocusLost(evt);
-            }
-        });
-
-        lblAditivoNumero.setText("Nº");
-
-        lblAditivoDescricao.setText("Descrição");
-
-        lblAditivoAssinatura.setText("Data da Assinatura");
-
-        ftfAditivoAssinatura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        ftfAditivoAssinatura.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
-        spnAditivos.setBorder(null);
-
-        tblAditivos.setBorder(null);
-        tblAditivos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Número", "Descrição", "Assinatura"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tblAditivos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        spnAditivos.setViewportView(tblAditivos);
-
-        javax.swing.GroupLayout PanAditivosLayout = new javax.swing.GroupLayout(PanAditivos);
-        PanAditivos.setLayout(PanAditivosLayout);
-        PanAditivosLayout.setHorizontalGroup(
-            PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanAditivosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spnAditivos)
-                    .addGroup(PanAditivosLayout.createSequentialGroup()
-                        .addComponent(btnAditivoAd)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAditivoRem)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAditivoAlt)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanAditivosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ftfAditivoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAditivoNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAditivoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAditivoDescricao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAditivoAssinatura)
-                    .addComponent(ftfAditivoAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        PanAditivosLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAditivoAd, btnAditivoAlt, btnAditivoRem});
-
-        PanAditivosLayout.setVerticalGroup(
-            PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanAditivosLayout.createSequentialGroup()
-                .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAditivoAd)
-                    .addComponent(btnAditivoRem)
-                    .addComponent(btnAditivoAlt))
-                .addGap(18, 18, 18)
-                .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanAditivosLayout.createSequentialGroup()
-                        .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAditivoNumero)
-                            .addComponent(lblAditivoDescricao))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanAditivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ftfAditivoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAditivoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanAditivosLayout.createSequentialGroup()
-                        .addComponent(lblAditivoAssinatura)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ftfAditivoAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(spnAditivos, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
-        );
-
-        PanAditivosLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAditivoAd, btnAditivoAlt, btnAditivoRem});
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -564,61 +237,52 @@ public class informCadContratos extends javax.swing.JInternalFrame {
                                 .addGap(10, 10, 10))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panContas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEndereco)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEndereco)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rbtCNPJ)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rbtCPF))
-                                    .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblObjeto)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataAssinatura)
+                                            .addComponent(ftfAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataVencimento)
+                                            .addComponent(ftfVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDataVigencia)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(ftfVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnAdcionar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(brnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnObjetos)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAgencia)
-                                    .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEndereco)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataAssinatura)
-                                    .addComponent(ftfAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataVencimento)
-                                    .addComponent(ftfVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataVigencia)
-                                    .addComponent(ftfVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(478, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanAditivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdcionar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(brnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtEndereco)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rbtCNPJ)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rbtCPF))
+                                            .addComponent(ftfCPFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblObjeto)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(cbxObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnObjetos)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblAgencia)
+                                            .addComponent(ftfAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {brnFechar, btnAdcionar, btnLimpar});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {panContas, panTarifas});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,28 +324,16 @@ public class informCadContratos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDataVigencia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ftfVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ftfVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdcionar)
+                            .addComponent(btnLimpar)
+                            .addComponent(brnFechar)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDataAssinatura)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ftfAssinatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panTarifas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panContas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanAditivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdcionar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpar)
-                        .addGap(18, 18, 18)
-                        .addComponent(brnFechar)
-                        .addGap(56, 56, 56))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -689,6 +341,35 @@ public class informCadContratos extends javax.swing.JInternalFrame {
 
     private void btnAdcionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdcionarActionPerformed
         // TODO add your handling code here:
+        int vResposta;
+        if (txtReferencia.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Campo \"Número\" é obrigatório.", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (txtRazao.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Campo \"Razão Social / Nome\" é obrigatório.", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (ftfAgencia.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Campo \"Agência\" é obrigatório.", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (ftfAno.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(this, "Campo \"Ano\" é obrigatório.", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (ftfAssinatura.getText().trim().equals("/  /")){
+            JOptionPane.showMessageDialog(this, "Campo \"Assinatura\" é obrigatório.", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (ftfCPFCNPJ.getText().trim().replace(".", "").replace("/", "").replace("-", "").equals("")){
+            JOptionPane.showMessageDialog(this, "Campo \"Número\" é obrigatório.", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (cbxObjeto.getSelectedIndex()==-1){
+            JOptionPane.showMessageDialog(this, "Selecione um Objeto para o contrato", "Informação", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         String vCPFCNPJ;
         if (rbtCNPJ.isSelected()) {
             if (ftfCPFCNPJ.getText().replace(".", "").replace("-", "").replace("/", "").trim().equals("")){
@@ -728,15 +409,27 @@ public class informCadContratos extends javax.swing.JInternalFrame {
                     ftfVigencia.getText()));
             if (!ftfVencimento.getText().equals("  /  /    ")) vContrato.setVencimento(new SimpleDateFormat("dd/MM/yyyy").parse(
                     ftfVencimento.getText()));
-            new ControleContratos().Incluir(vContrato);
+            vCtrlContratos.Incluir(vContrato);
+            vResposta = JOptionPane.showConfirmDialog(this, "Contrato cadastrado com sucesso.\nDeseja incluir as contas?",
+                    "Incluir", JOptionPane.YES_NO_OPTION);
+            if (vResposta == JOptionPane.YES_OPTION){
+                diagContas diagContasInstancia = new diagContas(null, true, vContrato);
+                diagContasInstancia.setVisible(true);
+            }
+            vResposta = JOptionPane.showConfirmDialog(this, "Deseja incluir as tarifas?" ,"Incluir", JOptionPane.YES_NO_OPTION);
+            if (vResposta == JOptionPane.YES_OPTION){
+                diagTarifas diagTarifasInstancia = new diagTarifas(null, true, vContrato);
+                diagTarifasInstancia.setVisible(true);
+            }
             this.btnLimparActionPerformed(new ActionEvent(btnAdcionar, 0, ""));
-            JOptionPane.showMessageDialog(this, "Contrato cadastrado com sucesso.","Incluir", JOptionPane.INFORMATION_MESSAGE);
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(this,"Verifique o campo Data de assinatura\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(informCadContratos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this,"Verifique o campo Ano\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(informCadContratos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            if (ex.getMessage().contains("Duplicate entry")) {
+            if (ex.getCause().getCause().toString().toLowerCase().contains("duplicate entry")) {
                 JOptionPane.showMessageDialog(this,"Já existe um contrato com esse número nesse ano\n" + ex, "Erro", JOptionPane.ERROR_MESSAGE);
             }
             Logger.getLogger(informCadContratos.class.getName()).log(Level.SEVERE, null, ex);
@@ -798,50 +491,22 @@ public class informCadContratos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         new diagObjetos(null, true, this).setVisible(true);
     }//GEN-LAST:event_btnObjetosActionPerformed
-
-    private void ftfAditivoNumeroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftfAditivoNumeroFocusLost
-        // TODO add your handling code here:
-        if (ftfAditivoNumero.getText().equals("")) ftfAditivoNumero.setValue(null);
-    }//GEN-LAST:event_ftfAditivoNumeroFocusLost
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanAditivos;
     private javax.swing.ButtonGroup bgpCNPJCPF;
     private javax.swing.JButton brnFechar;
     private javax.swing.JButton btnAdcionar;
-    private javax.swing.JButton btnAditivoAd;
-    private javax.swing.JButton btnAditivoAlt;
-    private javax.swing.JButton btnAditivoRem;
-    private javax.swing.JButton btnContaAd;
-    private javax.swing.JButton btnContaAlt;
-    private javax.swing.JButton btnContaRem;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnObjetos;
-    private javax.swing.JButton btnTarifaAd;
-    private javax.swing.JButton btnTarifaAlt;
-    private javax.swing.JButton btnTarifaRem;
     private javax.swing.JComboBox<String> cbxObjeto;
-    private javax.swing.JFormattedTextField ftfAditivoAssinatura;
-    private javax.swing.JFormattedTextField ftfAditivoNumero;
     private javax.swing.JFormattedTextField ftfAgencia;
     private javax.swing.JFormattedTextField ftfAno;
     private javax.swing.JFormattedTextField ftfAssinatura;
     private javax.swing.JFormattedTextField ftfCPFCNPJ;
-    private javax.swing.JFormattedTextField ftfContaAgencia;
-    private javax.swing.JFormattedTextField ftfContaNumero;
-    private javax.swing.JFormattedTextField ftfTarifaValor;
     private javax.swing.JFormattedTextField ftfVencimento;
     private javax.swing.JFormattedTextField ftfVigencia;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblAditivoAssinatura;
-    private javax.swing.JLabel lblAditivoDescricao;
-    private javax.swing.JLabel lblAditivoNumero;
     private javax.swing.JLabel lblAgencia;
     private javax.swing.JLabel lblAno;
-    private javax.swing.JLabel lblContaAgencia;
-    private javax.swing.JLabel lblContaDescricao;
-    private javax.swing.JLabel lblContaNumero;
     private javax.swing.JLabel lblDataAssinatura;
     private javax.swing.JLabel lblDataVencimento;
     private javax.swing.JLabel lblDataVigencia;
@@ -849,21 +514,10 @@ public class informCadContratos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblObjeto;
     private javax.swing.JLabel lblRazao;
     private javax.swing.JLabel lblReferencia;
-    private javax.swing.JLabel lblTarifaDescricao;
-    private javax.swing.JLabel lblTarifaValor;
-    private javax.swing.JPanel panContas;
-    private javax.swing.JPanel panTarifas;
     private javax.swing.JRadioButton rbtCNPJ;
     private javax.swing.JRadioButton rbtCPF;
-    private javax.swing.JScrollPane spnAditivos;
-    private javax.swing.JTable tblAditivos;
-    private javax.swing.JTable tblContas;
-    private javax.swing.JTable tblTarifas;
-    private javax.swing.JTextField txtAditivoDescricao;
-    private javax.swing.JTextField txtContaDescricao;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtRazao;
     private javax.swing.JTextField txtReferencia;
-    private javax.swing.JTextField txtTarifaDescricao;
     // End of variables declaration//GEN-END:variables
 }

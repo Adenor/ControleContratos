@@ -28,16 +28,13 @@ public class ConfigUtil {
 		defaultProps.setProperty("mail.password", "");
 		defaultProps.setProperty("mail.smtp.starttls.enable", "false");
 		defaultProps.setProperty("mail.smtp.auth", "false");
-		
 		configProps = new Properties(defaultProps);
-		
 		// loads properties from file
 		if (configFile.exists()) {
 			InputStream inputStream = new FileInputStream(configFile);
 			configProps.load(inputStream);
 			inputStream.close();
 		}
-		
 		return configProps;
 	}
 	

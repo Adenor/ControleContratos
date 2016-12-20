@@ -94,7 +94,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblRazao" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRazao" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtReferencia" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblAno" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAno" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="ftfAno" min="-2" pref="51" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -188,7 +188,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="lblAno" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtAno" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ftfAno" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
@@ -284,9 +284,12 @@
           <Properties>
             <Property name="focusCycleRoot" type="boolean" value="true"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txtAno"/>
+              <ComponentRef name="default"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="((AbstractDocument) txtReferencia.getDocument()).setDocumentFilter(new utilidade.FiltroTexto(10, true));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnFiltrar">
           <Properties>
@@ -501,13 +504,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAno">
-          <Properties>
-            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="rbtCNPJ"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblAno">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ano"/>
@@ -522,6 +518,17 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfAgencia.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;####&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="ftfAno">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.text.DefaultFormatterFactory(mf)" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ftfAno.setFocusLostBehavior(3);&#xa;try {&#xa;MaskFormatter mf = new MaskFormatter(&quot;yyyy&quot;);&#xa;mf.setValueContainsLiteralCharacters(false);"/>
           </AuxValues>
         </Component>
       </SubComponents>

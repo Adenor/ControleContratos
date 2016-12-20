@@ -19,8 +19,10 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import utilidade.FiltroTexto;
 import utilidade.Validadores;
 
 /**
@@ -64,7 +66,7 @@ public class diagDetalhes extends javax.swing.JDialog {
     
     public void atualizarTabela(){
         try {
-            vListaAdit = ContratoPai.getAditivoses();
+            vListaAdit = vCtrlAdit.ListarTodos(ContratoPai);
         } catch (Exception ex) {
             Logger.getLogger(informConContrato.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -225,6 +227,8 @@ public class diagDetalhes extends javax.swing.JDialog {
                 ftfNumeroFocusLost(evt);
             }
         });
+
+        ((AbstractDocument) txtDescricao.getDocument()).setDocumentFilter(new FiltroTexto(250));
 
         lblNumero.setText("Nº");
 
