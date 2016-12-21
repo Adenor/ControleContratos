@@ -262,7 +262,7 @@ public class informConContrato extends javax.swing.JInternalFrame {
 
         ftfAno.setFocusLostBehavior(3);
         try {
-            MaskFormatter mf = new MaskFormatter("yyyy");
+            MaskFormatter mf = new MaskFormatter("####");
             mf.setValueContainsLiteralCharacters(false);
             ftfAno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mf));
         } catch (java.text.ParseException ex) {
