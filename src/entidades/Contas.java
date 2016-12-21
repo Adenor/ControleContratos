@@ -1,5 +1,5 @@
 package entidades;
-// Generated 20/12/2016 12:50:28 by Hibernate Tools 4.3.1
+// Generated 21/12/2016 12:36:47 by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name="contas"
     ,catalog="contratosbd"
-    , uniqueConstraints = {@UniqueConstraint(columnNames={"Contratos_idContrato", "Agencia", "Numero"}), @UniqueConstraint(columnNames={"Descricao", "Contratos_idContrato"})} 
+    , uniqueConstraints = @UniqueConstraint(columnNames={"Contratos_idContrato", "Agencia", "Numero"}) 
 )
 public class Contas  implements java.io.Serializable {
 
